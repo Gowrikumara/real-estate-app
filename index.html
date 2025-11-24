@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Real Estate Personal App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Real Estate Manager</h1>
+    <p>Daily follow-ups & land records – offline on your device</p>
+  </header>
+
+  <main>
+    <div class="tabs">
+      <button class="tab-button active" data-tab="followup">Daily Follow-Up</button>
+      <button class="tab-button" data-tab="land">Land Records</button>
+    </div>
+
+    <section id="followup" class="tab-content active">
+      <div class="toolbar">
+        <input id="followup-search" type="text" placeholder="Search name / phone / status..." />
+        <select id="followup-status-filter">
+          <option value="">All Status</option>
+        </select>
+        <button id="followup-add">+ Add</button>
+        <button id="followup-export-json">Export JSON</button>
+        <button id="followup-export-xlsx">Export XLSX</button>
+      </div>
+      <div class="table-wrapper">
+        <table id="followup-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="land" class="tab-content">
+      <div class="toolbar">
+        <input id="land-search" type="text" placeholder="Search ID / location / status..." />
+        <select id="land-status-filter">
+          <option value="">All Status</option>
+        </select>
+        <button id="land-add">+ Add</button>
+        <button id="land-export-json">Export JSON</button>
+        <button id="land-export-xlsx">Export XLSX</button>
+      </div>
+      <div class="table-wrapper">
+        <table id="land-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal-backdrop" class="hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Add</h2>
+        <button id="modal-close">&times;</button>
+      </div>
+      <form id="modal-form"></form>
+    </div>
+  </div>
+
+  <footer>
+    <p>Data is stored only in this device (browser local storage). No login, no server.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
